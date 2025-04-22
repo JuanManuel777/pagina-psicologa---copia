@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACOMPAÑAAMIENTO PSICOSOCIAL</title>
+  <style>
+    :root {
+      --primary: #4C60C9;  /* Verde pastel profesional */
+      --secondary: #c4c4c3; /* Beige claro */
+      --accent: #A7C4BC;   /* Verde-azul suave */
+      --text: #000000;     /* Verde oscuro para texto */
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background: var(--primary);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px; /* Para el scroll suave */
+    }
+    .section h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      margin-top: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #5a7561;
+      transform: scale(1.02);
+    }
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    /* Nuevos estilos añadidos */
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      display: block;
+      border: 5px solid var(--accent);
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-top: 1rem;
+    }
+    .calendar-day {
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      background: #f8f9fa;
+      cursor: pointer;
+    }
+    .calendar-day:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .chat-container {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #eee;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .message {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      margin-bottom: 10px;
+    }
+    .user-message {
+      background: var(--accent);
+      color: white;
+      margin-left: auto;
+    }
+    .bot-message {
+      background: #f1f1f1;
+      margin-right: auto;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+  <!-- Fuente de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1><i></i>ACOMPAÑA+</h1>
+  </header>
+
+  <nav>
+    <a href="#inicio"><i class="fas fa-home"></i> Inicio</a>
+    <a href="#perfil"><i class="fas fa-user"></i> Chat bot</a>
+    <a href="#citas"><i class="fas fa-calendar-check"></i> Citas</a>
+    <a href="#recursos"><i class="fas fa-book"></i> Recursos</a>
+    <a href="#test"><i class="fas fa-clipboard-list"></i> Test</a>
+    <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+  </nav>
+
+  <main class="container">
+    <section id="inicio" class="section">
+      <h2>Bienvenido/a</h2>
+      <div class="card">
+        <p>🌿 Bienvenido a ACOMPAÑA+
+          Tu espacio seguro para crecer, sanar y reencontrarte contigo mismo.
+          En ACOMPAÑA+ , creemos que cuidar de tu salud emocional no es un lujo, es una necesidad, y estamos aquí para acompañarte en cada paso del camino.</p>
+
+          <p>Aquí encontrarás un acompañamiento psicosocial cálido, humano y accesible, pensado para personas como tú que desean sentirse mejor, entenderse más, y encontrar apoyo cuando más lo necesitan. Sabemos que hablar no siempre es fácil, por eso hemos creado un entorno donde puedes expresarte libremente, sin juicios y con total confidencialidad.</p>
+          
+          <p>🌙 ¿Necesitas hablar en cualquier momento del día? Nuestro chatbot empático, diseñado con inteligencia emocional, está disponible 24/7 para escucharte, orientarte y ofrecerte herramientas prácticas según lo que sientes. Ya sea tristeza, ansiedad, soledad o simplemente el deseo de desahogarte, aquí siempre tendrás un espacio para ti.</p>
+          
+          <p>📅 ¿Prefieres una atención más personalizada? Puedes agendar fácilmente citas con profesionales en salud mental comprometidos con tu bienestar. Psicólogos y terapeutas calificados estarán disponibles para ofrecerte un acompañamiento cercano y profesional.</p>
+          
+          <p>📚 Además, en nuestro apartado de contenido, encontrarás textos y recursos enriquecedores sobre salud mental, autocuidado y desarrollo personal. Artículos, consejos y reflexiones que te ayudarán a conocerte mejor y enfrentar los desafíos de la vida con mayor claridad.</p>
+          
+          <p>📬 ¿Tienes dudas o necesitas contactarnos? En nuestro apartado de contacto puedes escribirnos directamente. Estamos aquí para ti.</p>
+          
+          <p>💙 Tu bienestar es nuestra prioridad. Porque nadie debería sentirse solo en momentos difíciles. Aquí comienza un nuevo camino hacia tu equilibrio emocional.</p>
+      </div>
+    </section>
+
+    <section id="perfil" class="section">
+      <h2>Chat bot</h2>
+      <div class="card">
+        <div class="contenedor">
+          <header>
+            <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Logo" class="logo">
+            <h1>Tu Apoyo Virtual</h1>
+            <button id="temaBtn">🌙 Modo Oscuro</button>
+          </header>
+      
+          <div class="chat" id="chat"></div>
+      
+          <div id="sugerencias"></div>
+      
+          <form id="formulario">
+            <input type="text" id="entrada" placeholder="Escribe cómo te sientes..." autocomplete="off" required />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="citas" class="section">
+      <h2>Agendar cita</h2>
+      <div class="card">
+        <div class="chat-container" id="chat">
+          <div class="bg-white rounded-lg shadow p-6 w-full max-w-md">
+            <h1 class="text-2xl font-bold mb-4 text-center">Agendar Citas Médicas</h1>
+            <button id="openModalButton" class="bg-blue-500 text-white p-2 rounded-lg w-full mb-4">Agregar Cita</button>
+            <input type="date" id="filterDatePicker" class="border rounded-lg w-full p-2 mb-4">
+            <button id="filterButton" class="bg-green-500 text-white p-2 rounded-lg w-full mb-4">Filtrar Citas</button>
+            <ul id="appointmentList" class="mt-4"></ul>
+          </div>
+        
+          <!-- Modal -->
+          <div id="modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg w-full max-w-md">
+              <h2 id="modalTitle" class="text-xl font-bold mb-4">Nueva Cita</h2>
+              <input type="date" id="modalDatePicker" class="border rounded-lg w-full p-2 mb-4">
+              <input type="time" id="modalTimePicker" class="border rounded-lg w-full p-2 mb-4">
+              <input type="text" id="modalAppointment" placeholder="Descripción de la cita" class="border rounded-lg w-full p-2 mb-4">
+              <div class="flex justify-end">
+                <button id="closeModalButton" class="bg-gray-300 text-black p-2 rounded-lg mr-2">Cancelar</button>
+                <button id="saveModalButton" class="bg-green-500 text-white p-2 rounded-lg">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="calendar" style="display: none;">
+          <h3>Selecciona una fecha disponible</h3>
+          <div class="calendar" id="calendar-days">
+            <!-- Días generados por JavaScript -->
+          </div>
+          <h3>Horarios disponibles</h3>
+          <div id="time-slots">
+            <!-- Horarios generados por JavaScript -->
+          </div>
+          <button id="confirm-appointment"><i class="fas fa-check-circle"></i> Confirmar cita</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section">
+      <h2>Recursos terapéuticos</h2>
+      <div class="card">
+        <div class="resource-item">
+          <h3><i class="fas fa-file-pdf"></i> Diario emocional</h3>
+          <p>Registra tus emociones diarias para identificar patrones.</p>
+          <button><i class="fas fa-download"></i> Descargar</button>
+        </div>
+        <div class="resource-item" style="margin-top: 1.5rem;">
+          <h3><i class="fas fa-headphones"></i> Meditación guiada</h3>
+          <p>Audio de 10 minutos para reducir la ansiedad.</p>
+          <button><i class="fas fa-play"></i> Escuchar</button>
+        </div>
+        <div class="resource-item" style="margin-top: 1.5rem;">
+          <h3><i class="fas fa-video"></i> Manejo del estrés</h3>
+          <p>Técnicas prácticas para situaciones estresantes.</p>
+          <button><i class="fas fa-eye"></i> Ver video</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="test" class="section">
+      <h2>Test psicológicos</h2>
+      <div class="card">
+        <p>Realiza estos test para obtener una autoevaluación inicial:</p>
+        
+        <div class="test-option" style="margin-top: 1.5rem;">
+          <h3>Test de ansiedad (GAD-7)</h3>
+          <p>7 preguntas - 2 minutos</p>
+          <button id="start-anxiety-test"><i class="fas fa-clipboard-list"></i> Comenzar</button>
+        </div>
+        
+        <div class="test-option" style="margin-top: 1.5rem;">
+          <h3>Test de depresión (PHQ-9)</h3>
+          <p>9 preguntas - 3 minutos</p>
+          <button id="start-depression-test"><i class="fas fa-clipboard-list"></i> Comenzar</button>
+        </div>
+        
+        <div id="test-questions" style="display: none; margin-top: 2rem;">
+          <!-- Preguntas generadas por JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <div class="card">
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contacto@acompaña+.com</p>
+        <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> +57 318 123 4567</p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Consultorio virtual (Zoom/Meet) o Calle 123 #45-67, Manizales</p>
+        
+        <h3 style="margin-top: 1.5rem;">Envíame un mensaje directo</h3>
+        <form id="contact-form">
+          <div style="margin-bottom: 1rem;">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" rows="4" required style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd;"></textarea>
+          </div>
+          <button type="submit"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><i class="far fa-copyright"></i>SENA REGIONAL CALDAS-2025</p>
+  </footer>
+
+  <script>
+    // Funcionalidad del chat
+    document.getElementById('start-chat').addEventListener('click', function() {
+      this.style.display = 'none';
+      document.getElementById('calendar').style.display = 'block';
+      
+      // Simular respuesta del bot
+      const chat = document.getElementById('chat');
+      const newMessage = document.createElement('div');
+      newMessage.className = 'message bot-message';
+      newMessage.innerHTML = '<p>Por favor, selecciona una fecha disponible en el calendario:</p>';
+      chat.appendChild(newMessage);
+      chat.scrollTop = chat.scrollHeight;
+      
+      // Generar calendario
+      generateCalendar();
+    });
+    
+    // Generar días del calendario
+    function generateCalendar() {
+      const calendar = document.getElementById('calendar-days'); 
+      calendar.innerHTML = '';
+      
+      const days = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+      
+      // Encabezados de días
+      days.forEach(day => {
+        const dayElement = document.createElement('div');
+        dayElement.textContent = day;
+        dayElement.style.fontWeight = 'bold';
+        calendar.appendChild(dayElement);
+      });
+      
+      // Días del mes (ejemplo)
+      const totalDays = 35;
+      const today = new Date();
+      
+      for (let i = 0; i < totalDays; i++) {
+        const date = new Date();
+        date.setDate(today.getDate() + i);
+        
+        const dayElement = document.createElement('div');
+        dayElement.className = 'calendar-day';
+        dayElement.textContent = date.getDate();
+        
+        // Marcar días disponibles (ejemplo: solo días laborales)
+        if (date.getDay() !== 0 && date.getDay() !== 6) { // No fines de semana
+          dayElement.addEventListener('click', function() {
+            document.querySelectorAll('.calendar-day').forEach(day => {
+              day.style.background = '#f8f9fa';
+              day.style.color = 'inherit';
+            });
+            this.style.background = 'var(--primary)';
+            this.style.color = 'white';
+            generateTimeSlots();
+          });
+        } else {
+          dayElement.style.opacity = '0.5';
+          dayElement.style.cursor = 'not-allowed';
+        }
+        
+        calendar.appendChild(dayElement);
+      }
+    }
+    
+    // Generar horarios disponibles
+    function generateTimeSlots() {
+      const timeSlots = document.getElementById('time-slots');
+      timeSlots.innerHTML = '';
+      
+      const hours = ['9:00 AM', '11:00 AM', '2:00 PM', '4:00 PM', '6:00 PM'];
+      
+      hours.forEach(hour => {
+        const slot = document.createElement('button');
+        slot.textContent = hour;
+        slot.style.margin = '5px';
+        slot.style.padding = '8px 12px';
+        slot.style.background = 'var(--accent)';
+        slot.style.color = 'white';
+        slot.style.border = 'none';
+        slot.style.borderRadius = '4px';
+        slot.style.cursor = 'pointer';
+        
+        slot.addEventListener('click', function() {
+          document.querySelectorAll('#time-slots button').forEach(btn => {
+            btn.style.background = 'var(--accent)';
+          });
+          this.style.background = 'var(--primary)';
+        });
+        
+        timeSlots.appendChild(slot);
+      });
+    }
+    
+    // Confirmar cita
+    document.getElementById('confirm-appointment').addEventListener('click', function() {
+      const chat = document.getElementById('chat');
+      const newMessage = document.createElement('div');
+      newMessage.className = 'message bot-message';
+      newMessage.innerHTML = '<p>¡Cita agendada con éxito! Recibirás un correo de confirmación.</p>';
+      chat.appendChild(newMessage);
+      chat.scrollTop = chat.scrollHeight;
+      
+      document.getElementById('calendar').style.display = 'none';
+    });
+    
+    // Test de ansiedad
+    document.getElementById('start-anxiety-test').addEventListener('click', function() {
+      this.style.display = 'none';
+      document.getElementById('start-depression-test').style.display = 'none';
+      
+      const testContainer = document.getElementById('test-questions');
+      testContainer.style.display = 'block';
+      testContainer.innerHTML = '<h3>Test de Ansiedad (GAD-7)</h3>';
+      
+      const questions = [
+        "1. ¿Con qué frecuencia te has sentido nervioso/a, ansioso/a o con los nervios de punta?",
+        "2. ¿Con qué frecuencia no has podido parar o controlar tus preocupaciones?",
+        "3. ¿Con qué frecuencia te has preocupado demasiado por diferentes cosas?",
+        // Añadir más preguntas...
+      ];
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('div');
+        questionElement.style.marginBottom = '1.5rem';
+        questionElement.innerHTML = `
+          <p><strong>${question}</strong></p>
+          <div>
+            <input type="radio" id="q${index}a" name="q${index}" value="0">
+            <label for="q${index}a">Nunca</label>
+            
+            <input type="radio" id="q${index}b" name="q${index}" value="1" style="margin-left: 10px;">
+            <label for="q${index}b">Algunos días</label>
+            
+            <input type="radio" id="q${index}c" name="q${index}" value="2" style="margin-left: 10px;">
+            <label for="q${index}c">Más de la mitad de los días</label>
+            
+            <input type="radio" id="q${index}d" name="q${index}" value="3" style="margin-left: 10px;">
+            <label for="q${index}d">Casi todos los días</label>
+          </div>
+        `;
+        testContainer.appendChild(questionElement);
+      });
+      
+      const submitButton = document.createElement('button');
+      submitButton.innerHTML = '<i class="fas fa-check"></i> Enviar respuestas';
+      submitButton.style.marginTop = '1rem';
+      submitButton.addEventListener('click', function() {
+        alert('Test completado. Los resultados se enviarán a la psicóloga para evaluación.');
+      });
+      testContainer.appendChild(submitButton);
+    });
+    
+    // Formulario de contacto
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Mensaje enviado con éxito. La psicóloga te responderá pronto.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
